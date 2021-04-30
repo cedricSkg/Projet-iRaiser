@@ -1,47 +1,64 @@
-<form id="form-section" method="GET" action="Formulaire.html" name="form">
-    <h2>Formulaire</h2>
-    <div class="form-group form-input">
-        <input type="text" name="nom" id="name" required/>
-        <label for="nom" class="form-label">Nom</label>
-    </div>
-    <div class="form-group form-input">
-        <input type="text" name="prenom" id="prenom" required/>
-        <label for="prenom" class="form-label">Prénom</label>
-    </div>
-    <div class="form-group form-input">
-        <input type="number" name="age" id="age" required/>
-        <label for="age" class="form-label">Âge</label>
-    </div>
-    <div class="form-group form-input">
-        <input type="email" name="ad-mail" id="ad-mail" required/>
-        <label for="ad-mail" class="form-label">Adresse mail</label>
-    </div>
-    <div class="form-group form-input">
-        <input type="tel" name="tel" id="tel"  required />
-        <label for="tel" class="form-label">Téléphone</label>
-    </div>
-    <div class="form-group">
-        <div class="select-list">
-            <select type="select"class="form-input" name="type-carte" onchange="appel()" id="carte">
-                <option hidden> Type de carte</option>
-                <option value="Individuel">Individuel</option>
-                <option value="Couple" class="couple">Couple</option>
-                <option value="Premium">Premium</option>
-            </select>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Formulaire Majeur - iRaiser</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/style-form.css">
+</head>
+
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <div class="form-content">
+                <div class="form-image">
+                    <img class="form-img" src="images/iraiser-logo.svg" alt="form Image">
+                </div>
+                <div class="form-section">
+                    <form id="form-section" method="GET" action="" name="form">
+                        <h2 id="title" value="Majeur">Formulaire - Majeur</h2>
+                        <div class="form-group form-input">
+                            <input type="text" name="nom" id="name" />
+                            <label for="nom" class="form-label">Nom</label>
+                        </div>
+                        <div class="form-group form-input">
+                            <input type="text" name="prenom" id="prenom" />
+                            <label for="prenom" class="form-label">Prénom</label>
+                        </div>
+                        <div class="form-group form-input">
+                            <input type="number" name="age" id="age" />
+                            <label for="age" class="form-label">Âge</label>
+                        </div>
+                        <div class="form-group form-input">
+                            <input type="email" name="ad-mail" id="ad-mail" />
+                            <label for="ad-mail" class="form-label">Adresse mail</label>
+                        </div>
+                        <div class="form-group form-input">
+                            <input type="tel" name="tel" id="tel" />
+                            <label for="tel" class="form-label">Téléphone</label>
+                        </div>
+                        <div class="form-group form-input">
+                            <input type="text" name="typeCarte" />
+                            <label for="type" class="form-label">typeCarte</label>
+                        </div>
+                        <div class="insertHere2" id="insertHere2">
+
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
+
     </div>
-    
-    <div class="insertHere" id="insertHere">
-        <div class="form-group form-input" data-validate="Prénom requis">
-            <input type="text" name="prenom" id="prenom" required/>
-            <label for="prenom" class="form-label">Prénom</label>
-        </div> 
-        <div class="form-group form-input">
-            <input type="text" name="nom" id="name" required/>
-            <label for="nom" class="form-label">Nom</label>
-        </div>
-    </div>
-    <div class="form-btn-container">
-        <input class="btn" type="submit" value="Valider">
-    </div>
-</form>
+
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>
