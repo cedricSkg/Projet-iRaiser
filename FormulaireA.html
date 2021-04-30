@@ -1,0 +1,47 @@
+<form id="form-section" method="GET" action="Formulaire.html" name="form">
+    <h2>Formulaire</h2>
+    <div class="form-group form-input">
+        <input type="text" name="nom" id="name" required/>
+        <label for="nom" class="form-label">Nom</label>
+    </div>
+    <div class="form-group form-input">
+        <input type="text" name="prenom" id="prenom" required/>
+        <label for="prenom" class="form-label">Prénom</label>
+    </div>
+    <div class="form-group form-input">
+        <input type="number" name="age" id="age" required/>
+        <label for="age" class="form-label">Âge</label>
+    </div>
+    <div class="form-group form-input">
+        <input type="email" name="ad-mail" id="ad-mail" required/>
+        <label for="ad-mail" class="form-label">Adresse mail</label>
+    </div>
+    <div class="form-group form-input">
+        <input type="tel" name="tel" id="tel"  required />
+        <label for="tel" class="form-label">Téléphone</label>
+    </div>
+    <div class="form-group">
+        <div class="select-list">
+            <select type="select"class="form-input" name="type-carte" onchange="appel()" id="carte">
+                <option hidden> Type de carte</option>
+                <option value="Individuel">Individuel</option>
+                <option value="Couple" class="couple">Couple</option>
+                <option value="Premium">Premium</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="insertHere" id="insertHere">
+        <div class="form-group form-input" data-validate="Prénom requis">
+            <input type="text" name="prenom" id="prenom" required/>
+            <label for="prenom" class="form-label">Prénom</label>
+        </div> 
+        <div class="form-group form-input">
+            <input type="text" name="nom" id="name" required/>
+            <label for="nom" class="form-label">Nom</label>
+        </div>
+    </div>
+    <div class="form-btn-container">
+        <input class="btn" type="submit" value="Valider">
+    </div>
+</form>
