@@ -1,7 +1,7 @@
 function appel(x){
 
     if(x.value == "Couple"){
-        document.getElementById("insertHere").innerHTML='<div class="form-group form-input"><input type="text" name="nom" id="name" required/><label for="nom" class="form-label">Nom</label></div><div class="form-group form-input"><input type="text" name="prenom" id="prenom" required/><label for="prenom" class="form-label">Prénom</label></div>';
+        document.getElementById("insertHere").innerHTML='<div class="form-group form-input"><input type="text" name="prenom-cj" id="prenom-cj" required/><label for="prenom-cj" class="form-label">Prénom conjoint</label></div><div class="form-group form-input"><input type="text" name="nom-cj" id="name-cj" required/><label for="nom-cj" class="form-label">Nom du conjoint</label></div>';
     }
     var length = document.getElementById('insertHere').childNodes.length;
 
