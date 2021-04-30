@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Formulaire principal - iRaiser</title>
 
     <!-- css -->
@@ -43,7 +44,12 @@
                         </div>
                         <div class="form-group form-input">
                             <div class="dropdown">
-                                <input type="text" onclick="myFunction()" class="dropbtn" id="dropbtn" value="Type de carte" readonly="readonly">
+                                <div clas="row">
+                                    <button type="button" onclick="myFunction()" class="dropbtn col" id="dropbtn" value="Type de carte" readonly="readonly">
+                                        <script>document.getElementById("dropbtn").innerHTML = document.getElementById("dropbtn").value</script>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sort-down col"></i>
+                                    </button>
+                                </div>
                                 <div id="myDropdown" class="dropdown-content">
                                   <input type="button" value="Individuel"  onClick="appel(this,affichage(this))" class="a">
                                   <input type="button" value="Couple" onClick="appel(this,affichage(this))" class="a">

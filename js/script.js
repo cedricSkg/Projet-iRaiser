@@ -6,7 +6,7 @@ function appel(x){
     var length = document.getElementById('insertHere').childNodes.length;
 
     if(x.value != "Couple" && length>0){
-        document.getElementById("insertHere").style.display="none";
+        document.getElementById("insertHere").innerHTML='';
     }
 }
 
@@ -42,4 +42,5 @@ window.onclick = function(event) {
 
 function affichage(x){
     document.getElementById("dropbtn").value=x.value;
+    document.getElementById("dropbtn").innerHTML = document.getElementById("dropbtn").value + '<i class="fa fa-sort-down col"></i>';
 }
