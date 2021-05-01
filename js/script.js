@@ -1,15 +1,17 @@
 var supp = "";
 var tabInput = document.getElementById("form-section").getElementsByTagName("input");
+
 function appel(x) {
     if (x.value == "Couple") {
         supp = "true";
+        sessionStorage.setItem('length', tabInput.length);
         document.getElementById("insertHere").innerHTML = '<div class="form-group form-input"><input type="text" name="prenom-cj" id="prenom-cj" required/><label for="prenom-cj" class="form-label">Prénom conjoint</label></div><div class="form-group form-input"><input type="text" name="nom-cj" id="name-cj" required/><label for="nom-cj" class="form-label">Nom du conjoint</label></div>';
     }
-    var length = document.getElementById('insertHere').childNodes.length;
 
     if (x.value != "Couple" && length > 0) {
         supp = "false";
         document.getElementById("insertHere").innerHTML = '';
+        sessionStorage.setItem('length', 0);
     }
 
 
@@ -25,7 +27,6 @@ function valider() {
     } else if (age < 1) {
         alert("L'age ne peut être négatif ou égale à 0");
     }
-
 }
 
 function myFunction() {
@@ -68,6 +69,9 @@ function $_GET(param) {
 }
 
 function insert() {
+    if (sessionStorage.getItem('length')>6) {
+        document.getElementById("insertHere2").innerHTML = '<div class="form-group form-input"><input type="text" name="prenom-cj" id="prenom-cj" required/><label for="prenom-cj" class="form-label">Prénom conjoint</label></div><div class="form-group form-input"><input type="text" name="nom-cj" id="name-cj" required/><label for="nom-cj" class="form-label">Nom du conjoint</label></div>';
+    }
     tabInput = document.getElementById("form-section").getElementsByTagName("input");
     for (let i = 0; i < tabInput.length; i++) {
         tabInput[i].value = replaceAll("+", " ", decodeURI($_GET(tabInput[i].name)));
@@ -82,13 +86,13 @@ function insert() {
         }
     }
     tabInput[3].value = val1 + "@" + val2;
-
+    sessionStorage.setItem('length', 0);
 }
 
 function replaceAll(recherche, remplacement, chaineAModifier) {
     return chaineAModifier.split("+").join(" ");
 }
 
-document.getElementById("insertHere2").innerHTML = '<div class="form-group form-input"><input type="text" name="prenom-cj" id="prenom-cj" required/><label for="prenom-cj" class="form-label">Prénom conjoint</label></div><div class="form-group form-input"><input type="text" name="nom-cj" id="name-cj" required/><label for="nom-cj" class="form-label">Nom du conjoint</label></div>';
-
-insert();
+if (newTabInputLength > 10) {
+    document.getElementById("insertHere2").innerHTML = '<div class="form-group form-input"><input type="text" name="prenom-cj" id="prenom-cj" required/><label for="prenom-cj" class="form-label">Prénom conjoint</label></div><div class="form-group form-input"><input type="text" name="nom-cj" id="name-cj" required/><label for="nom-cj" class="form-label">Nom du conjoint</label></div>';
+}

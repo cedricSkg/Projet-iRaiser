@@ -56,16 +56,13 @@
                                 </div>
                                 <input type="text" name="typeCarte" class="hide" id="hide" value="">
                                 <div id="myDropdown" class="dropdown-content">
-                                    <input type="button" value="Individuel" onClick="appel(this,affichage(this))"
-                                        class="a">
+                                    <input type="button" value="Individuel" onClick="appel(this,affichage(this))" class="a">
                                     <input type="button" value="Couple" onClick="appel(this,affichage(this))" class="a">
-                                    <input type="button" value="Premium" onClick="appel(this,affichage(this))"
-                                        class="a">
+                                    <input type="button" value="Premium" onClick="appel(this,affichage(this))" class="a">
                                 </div>
                             </div>
                         </div>
                         <div class="insertHere" id="insertHere">
-
                         </div>
                         <div>
                             <input class="btn" type="submit" value="Valider" onclick="valider()">
@@ -77,7 +74,11 @@
 
     </div>
     <script type="text/javascript" src="js/script.js"></script>
-    <script>affichageSupp()</script>
+    <script>
+        affichageSupp();
+        sessionStorage.setItem('length', 0);
+    </script>
+
 </body>
 
 </html>
