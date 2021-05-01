@@ -22,8 +22,9 @@
                     <img class="form-img" src="images/iraiser-logo.svg" alt="form Image">
                 </div>
                 <div class="form-section">
-                    <form id="form-section" method="GET" action="" name="form">
-                        <h2 id="title" value="">Formulaire</h2>
+                    <form id="form-section" method="GET" name="form">
+                        <h2 id="title" value="">Formulaire - Principal</h2>
+                        <span id="requis"></span>
                         <div class="form-group form-input">
                             <input type="text" name="nom" id="name" required />
                             <label for="nom" class="form-label">Nom</label>
@@ -64,8 +65,12 @@
                         </div>
                         <div class="insertHere" id="insertHere">
                         </div>
+                        <div class="Reponse" id="Reponse">
+                        </div>
                         <div>
-                            <input class="btn" type="submit" value="Valider" onclick="valider()">
+                            <input class="btn" type="button" value="Valider" onclick="valider()">
+                        </div>
+                        <div id="lien">
                         </div>
                     </form>
                 </div>

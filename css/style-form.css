@@ -233,13 +233,15 @@ select>option:hover {
   display: block;
   border: none;
   font-family: Poppins;
-  color: #fff;
+  color: #bdcee0;
   background: transparent;
   border-bottom: 1px solid #bdcee0;
   padding: 4px 0;
   text-align: left;
   cursor: pointer;
 }
+
+
 
 .dropdown-content {
   display: none;
@@ -269,6 +271,10 @@ select>option:hover {
 
 .hide {
   display: none;
+}
+
+.Reponse{
+  color: red;
 }
 
 @media screen and (max-width: 1200px) {
