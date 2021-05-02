@@ -190,7 +190,7 @@ input:focus {
   width: auto;
   background: #59c77f;
   color: #fff;
-  padding: 15px 43px;
+  padding: 15px;
   font-weight: bold;
   border: none;
   border-radius: 5px;
@@ -199,6 +199,7 @@ input:focus {
   -o-border-radius: 5px;
   -ms-border-radius: 5px;
   cursor: pointer;
+  display:inline-block;
 }
 
 .btn:hover {
@@ -267,6 +268,16 @@ input:focus {
 a{
   text-decoration: none;
   color: #fff;
+}
+.fin{
+  display:inline-block;
+	width:100%;
+  padding: 20px 20px 20px 20px;
+}
+
+#lien{
+  padding: 11px, 43px;
+  display:none;
 }
 
 @media screen and (max-width: 1200px) {

@@ -45,27 +45,27 @@ function valider() {
  
     if (age >= 18) {
         if (sessionStorage.getItem('length')==10) {
-            document.getElementById("lien").style.display="block";
-            document.getElementById("lien").style.padding="12px 43px";
-            document.getElementById("lien").innerHTML="<a class='btn' href='FormulaireB.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"'>Formulaire Majeur</a>";
+            document.getElementById("lien").style.display="inline-block";
+            document.getElementById("lien").innerHTML="<a  href='FormulaireB.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"'>"
+            +"<input type='button' class='btn' value='Formulaire Majeur'/> </a>";
         }
         if (sessionStorage.getItem('length')>10) {
-            document.getElementById("lien").style.display="block";
-            document.getElementById("lien").style.padding="12px 43px";
-            document.getElementById("lien").innerHTML="<a class='btn' href='FormulaireB.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"&prenom-cj="+encodeURI(document.getElementById("prenom-cj").value)+"&nom-cj="+encodeURI(document.getElementById("nom-cj").value)+"'>Formulaire Majeur</a>";
+            document.getElementById("lien").style.display="inline-block";
+            document.getElementById("lien").innerHTML="<a  href='FormulaireB.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"&prenom-cj="+encodeURI(document.getElementById("prenom-cj").value)+"&nom-cj="+encodeURI(document.getElementById("nom-cj").value)+"'>"
+            +"<input type='button' class='btn' value='Formulaire Majeur'/> </a>";
         }
         document.getElementById("Reponse").style.color="green";
         document.getElementById("Reponse").innerHTML="Lien générer avec succès ! Cliquez sur celui-ci pour la redirection";
     } else if (age < 18 && age > 1) {
         if (sessionStorage.getItem('length')==10) {
-            document.getElementById("lien").style.display="block";
-            document.getElementById("lien").style.padding="12px 43px";
-            document.getElementById("lien").innerHTML="<a class='btn' href='FormulaireA.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"'>Formulaire Mineur</a>";
+            document.getElementById("lien").style.display="inline-block";
+            document.getElementById("lien").innerHTML="<a  href='FormulaireA.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"'>"
+            +"<input type='button' class='btn' value='Formulaire Majeur'/> </a>";
         }
         if (sessionStorage.getItem('length')>10) {
-            document.getElementById("lien").style.display="block";
-            document.getElementById("lien").style.padding="12px 43px";
-            document.getElementById("lien").innerHTML="<a class='btn' href='FormulaireA.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"&prenom-cj="+encodeURI(document.getElementById("prenom-cj").value)+"&nom-cj="+encodeURI(document.getElementById("nom-cj").value)+"'>Formulaire Mineur</a>";
+            document.getElementById("lien").style.display="inline-block";
+            document.getElementById("lien").innerHTML="<a  href='FormulaireA.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"&prenom-cj="+encodeURI(document.getElementById("prenom-cj").value)+"&nom-cj="+encodeURI(document.getElementById("nom-cj").value)+"'>"
+            +"<input type='button' class='btn' value='Formulaire Majeur'/> </a>";
         }
         document.getElementById("Reponse").style.color="green";
         document.getElementById("Reponse").innerHTML="Lien générer avec succès ! Cliquez sur celui-ci pour la redirection";
