@@ -27,12 +27,10 @@ function valider() {
     var tel = encodeURI(document.form.tel.value);
     var typeCarte = encodeURI(document.form.hide.value);
 
-    if (nom=="" && prenom=="" && age=="" && mail=="" && tel=="" && typeCarte=="") {
+    if (nom=="" || prenom=="" || age=="" || mail=="" || tel=="" || typeCarte=="") {
         document.getElementById("requis").style.color="red";
         document.getElementById("requis").innerHTML='<i class="fa fa-exclamation-triangle"></i> Tous les champs doivent être remplis';
-        requis="false";
     }else{
-        requis="true";
     }
 
     // remplace le @ de l'adressemail par son encodage hexadécimal
@@ -46,26 +44,28 @@ function valider() {
 
  
     if (age >= 18) {
-        //  document.getElementById("form-section").setAttribute("action","FormulaireB.html");
-        //  document.forms["form-section"].submit();
         if (sessionStorage.getItem('length')==10) {
-            document.getElementById("lien").innerHTML="<a href='FormulaireB.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"'>Formulaire Majeur</a>";
+            document.getElementById("lien").style.display="block";
+            document.getElementById("lien").style.padding="12px 43px";
+            document.getElementById("lien").innerHTML="<a class='btn' href='FormulaireB.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"'>Formulaire Majeur</a>";
         }
         if (sessionStorage.getItem('length')>10) {
-
-            document.getElementById("lien").innerHTML="<a href='FormulaireB.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"&prenom-cj="+encodeURI(document.getElementById("prenom-cj").value)+"&nom-cj="+encodeURI(document.getElementById("nom-cj").value)+"'>Formulaire Majeur</a>";
+            document.getElementById("lien").style.display="block";
+            document.getElementById("lien").style.padding="12px 43px";
+            document.getElementById("lien").innerHTML="<a class='btn' href='FormulaireB.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"&prenom-cj="+encodeURI(document.getElementById("prenom-cj").value)+"&nom-cj="+encodeURI(document.getElementById("nom-cj").value)+"'>Formulaire Majeur</a>";
         }
         document.getElementById("Reponse").style.color="green";
         document.getElementById("Reponse").innerHTML="Lien générer avec succès ! Cliquez sur celui-ci pour la redirection";
     } else if (age < 18 && age > 1) {
-        //document.getElementById("form-section").setAttribute("action","FormulaireA.html");
-        //document.forms["form-section"].submit();
         if (sessionStorage.getItem('length')==10) {
-            document.getElementById("lien").innerHTML="<a href='FormulaireA.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"'>Formulaire Mineur</a>";
+            document.getElementById("lien").style.display="block";
+            document.getElementById("lien").style.padding="12px 43px";
+            document.getElementById("lien").innerHTML="<a class='btn' href='FormulaireA.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"'>Formulaire Mineur</a>";
         }
         if (sessionStorage.getItem('length')>10) {
-
-            document.getElementById("lien").innerHTML="<a href='FormulaireA.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"&prenom-cj="+encodeURI(document.getElementById("prenom-cj").value)+"&nom-cj="+encodeURI(document.getElementById("nom-cj").value)+"'>Formulaire Mineur</a>";
+            document.getElementById("lien").style.display="block";
+            document.getElementById("lien").style.padding="12px 43px";
+            document.getElementById("lien").innerHTML="<a class='btn' href='FormulaireA.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"&prenom-cj="+encodeURI(document.getElementById("prenom-cj").value)+"&nom-cj="+encodeURI(document.getElementById("nom-cj").value)+"'>Formulaire Mineur</a>";
         }
         document.getElementById("Reponse").style.color="green";
         document.getElementById("Reponse").innerHTML="Lien générer avec succès ! Cliquez sur celui-ci pour la redirection";
@@ -131,6 +131,8 @@ function insert() {
     }
     //remplcer tous les + par des " " pour une meilleure lisibilité
     for (let i = 0; i < tabInput.length; i++) {
+        tabInput[i].maxLength = $_GET(tabInput[i].name).length;
+        tabInput[i].minLength = $_GET(tabInput[i].name).length;
         tabInput[i].value = replaceAll("+", " ", decodeURI($_GET(tabInput[i].name)));
     }
 

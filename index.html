@@ -57,9 +57,9 @@
                                 </div>
                                 <input type="text" name="typeCarte" class="hide" id="hide" value="">
                                 <div id="myDropdown" class="dropdown-content">
-                                    <input type="button" value="Individuel" onClick="appel(this,affichage(this))" class="a">
-                                    <input type="button" value="Couple" onClick="appel(this,affichage(this))" class="a">
-                                    <input type="button" value="Premium" onClick="appel(this,affichage(this))" class="a">
+                                    <input type="button" value="Individuel" onclick="appel(this,affichage(this))" class="a">
+                                    <input type="button" value="Couple" onclick="appel(this,affichage(this))" class="a">
+                                    <input type="button" value="Premium" onclick="appel(this,affichage(this))" class="a">
                                 </div>
                             </div>
                         </div>
@@ -68,10 +68,16 @@
                         <div class="Reponse" id="Reponse">
                         </div>
                         <div>
-                            <input class="btn" type="button" value="Valider" onclick="valider()">
+                            <table>
+                                <tr>
+                                    <td><input class="btn" type="button" value="Valider" onclick="valider()"></td>
+                                <td id="lien" class=" hide" id="lien">
+                                </td>
+                                </tr>
+                            </table>
+                            
                         </div>
-                        <div id="lien">
-                        </div>
+                        
                     </form>
                 </div>
             </div>

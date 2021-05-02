@@ -37,7 +37,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input:focus, select:focus {
+input:focus {
   outline: none;
   box-shadow: none !important;
   -moz-box-shadow: none !important;
@@ -170,7 +170,7 @@ input:focus+.form-label, input:valid+.form-label {
   color: #59c77f;
 }
 
-input, select {
+input {
   box-sizing: border-box;
   width: 100%;
   display: block;
@@ -182,13 +182,13 @@ input, select {
   padding: 4px 0;
 }
 
-input:focus, select:focus {
+input:focus {
   border-bottom: 1px solid #59c77f;
 }
 
 .btn {
   width: auto;
-  background: #0de156;
+  background: #59c77f;
   color: #fff;
   padding: 15px 43px;
   font-weight: bold;
@@ -202,24 +202,11 @@ input:focus, select:focus {
 }
 
 .btn:hover {
-  background: #59c77f;
+  background:#7dd39b;
+  color:#142133;
 }
 
-select {
-  display: inline-block;
-  width: 100%;
-  color: #bdcee0;
-}
 
-select option {
-  color: #000;
-  padding: 5px 0px;
-  z-index: 2;
-}
-
-select>option:hover {
-  background: #59c77f;
-}
 
 .dropdown {
   position: relative;
@@ -275,6 +262,11 @@ select>option:hover {
 
 .Reponse{
   color: red;
+}
+
+a{
+  text-decoration: none;
+  color: #fff;
 }
 
 @media screen and (max-width: 1200px) {
