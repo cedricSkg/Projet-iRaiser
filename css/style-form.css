@@ -78,7 +78,7 @@ body {
 }
 
 .main {
-  padding: 51px 0;
+  padding: 50px 0;
   position: relative;
 }
 
@@ -153,7 +153,17 @@ form {
   left: 0;
   top: 23px;
 }
-
+.form-label2 {
+  position: absolute;
+  transition: 0.25s ease;
+  -moz-transition: 0.25s ease;
+  -webkit-transition: 0.25s ease;
+  -o-transition: 0.25s ease;
+  -ms-transition: 0.25s ease;
+  top: 1px;
+  font-size: 11px;
+  color: #59c77f;
+}
 input {
   transition: 0.3s ease;
   -moz-transition: 0.3s ease;
@@ -199,6 +209,7 @@ input:focus {
   -o-border-radius: 5px;
   -ms-border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s;
   display:inline-block;
 }
 
@@ -206,7 +217,10 @@ input:focus {
   background:#7dd39b;
   color:#142133;
 }
-
+.btn:hover{
+  letter-spacing: 2px;
+  transition: all 0.3s;
+}
 
 
 .dropdown {
@@ -217,7 +231,7 @@ input:focus {
 
 #dropbtn {
   box-sizing: border-box;
-  width: 95%;
+  width: 98%;
   display: block;
   border: none;
   font-family: Poppins;
@@ -287,35 +301,7 @@ a{
   display:none;
 }
 
-footer{
-  left: 0;
-  bottom: 0;
-  width: auto;
-  color: white;
-  background: #142133;
-  padding: 2px 10px 2px 10px;
-}
 
-footer span{
-
-}
-
-.rsLien{
-  padding: 5px;
-  border-radius: 50%;
-  background: #fff;
-  color: #000;
-  float: right;
-}
-
-.rsLien:hover{
-  background: #59c77f;
-  color: #fff;
-}
-
-.first{
-  left: -200px;
-}
 
 @media screen and (max-width: 1200px) {
   .container {
@@ -354,17 +340,10 @@ footer span{
     border-bottom-right-radius: 10px;
     width: 30%;
   }
-  .first{
-    margin-left: 41%;
-  }
-
 }
 
 @media screen and (max-width: 480px) {
   form {
     padding: 72px 40px 70px 40px;
-  }
-  .first{
-    margin-left: 0;
   }
 }

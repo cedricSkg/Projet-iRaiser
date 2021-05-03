@@ -3,24 +3,24 @@ var tabInput = document.getElementById("form-section").getElementsByTagName("inp
 //Function permettant d'ajouter le nom et le prenom du conjoint en cas d'une carte couple
 function appel(x) {
     var age = encodeURI(document.form.age.value);
-    if (x.value == "Couple" && age>=18) {
+    if (x.value == "Couple" && age >= 18) {
         //ajout des champs concernant le conjoint
         document.getElementById("insertHere").innerHTML = '<div class="form-group form-input"><input type="text" name="prenom-cj" id="prenom-cj" required/><label for="prenom-cj" class="form-label">Prénom conjoint</label></div><div class="form-group form-input"><input type="text" name="nom-cj" id="nom-cj" required/><label for="nom-cj" class="form-label">Nom du conjoint</label></div>';
         sessionStorage.setItem('length', tabInput.length);//variable session stockant le nombre d'inputs presents dans le formulaire
-    }else if(x.value == "Couple" && age<10){
-        document.getElementById("Reponse").style.color="red";
-        document.getElementById("Reponse").innerHTML="Vous êtes mineur. Seelectionner un autre type de carte";
+    } else if (x.value == "Couple" && age < 18) {
+        document.getElementById("Reponse").style.color = "red";
+        document.getElementById("Reponse").innerHTML = "Vous êtes mineur. Seelectionner un autre type de carte";
     }
 
-    if (x.value != "Couple" && sessionStorage.getItem('length')>10) {
+    if (x.value != "Couple" && sessionStorage.getItem('length') > 10) {
         //si on clique sur un type de de carte différent que couple et si le nombre d'inputs est suppérieur aux 10 présents normalement (avec les deux autres)
         //on les suppriment
         document.getElementById("insertHere").innerHTML = '';
         sessionStorage.setItem('length', tabInput.length);
-        document.getElementById("Reponse").innerHTML="lklk";
+        document.getElementById("Reponse").innerHTML = "lklk";
     }
     if (x.value != "Couple") {
-        document.getElementById("Reponse").innerHTML="";
+        document.getElementById("Reponse").innerHTML = "";
     }
 }
 
@@ -35,46 +35,46 @@ function valider() {
     var tel = encodeURI(document.form.tel.value);
     var typeCarte = encodeURI(document.form.hide.value);
 
-    if (nom=="" || prenom=="" || age=="" || mail=="" || tel=="" || typeCarte=="") {
-        document.getElementById("requis").style.color="red";
-        document.getElementById("requis").innerHTML='<i class="fa fa-exclamation-triangle"></i> Tous les champs doivent être remplis';
-    }else{
-        document.getElementById("requis").innerHTML='';
-    }
+    if (nom == "" || prenom == "" || age == "" || mail == "" || tel == "" || typeCarte == "") {
+        document.getElementById("requis").style.color = "red";
+        document.getElementById("requis").innerHTML = '<i class="fa fa-exclamation-triangle"></i> Tous les champs doivent être remplis';
+    } else if (nom != "" && prenom != "" && age != "" && mail != "" && tel != "" && typeCarte != ""){
 
-    // remplace le @ de l'adressemail par son encodage hexadécimal
-    for (let i = 0; i < mail.length; i++) {
-        if (mail[i] == "@") {
-            val1 = mail.substring(0, i);
-            val2 = mail.substring(i+1, mail.length);
+        // remplace le @ de l'adressemail par son encodage hexadécimal
+        for (let i = 0; i < mail.length; i++) {
+            if (mail[i] == "@") {
+                val1 = mail.substring(0, i);
+                val2 = mail.substring(i + 1, mail.length);
+            }
         }
-    }
-    mail = val1 + "%40" + val2;
+        mail = val1 + "%40" + val2;
 
- 
-    if (age >= 18) {
-        if (sessionStorage.getItem('length')==10) {
-            document.getElementById("lien").style.display="inline-block";
-            document.getElementById("lien").innerHTML="<a  href='FormulaireB.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"'>"
-            +"<input type='button' class='btn' value='Formulaire Majeur'/> </a>";
+
+        if (age >= 18) {
+            if (sessionStorage.getItem('length') == 10) {
+                document.getElementById("lien").style.display = "inline-block";
+                document.getElementById("lien").innerHTML = "<a  href='FormulaireB.html?nom=" + nom + "&prenom=" + prenom + "&age=" + age + "&ad-mail=" + mail + "&tel=" + tel + "&typeCarte=" + typeCarte + "'>"
+                    + "<input type='button' class='btn' value='Formulaire Majeur'/> </a>";
+            }
+            if (sessionStorage.getItem('length') > 10) {
+                document.getElementById("lien").style.display = "inline-block";
+                document.getElementById("lien").innerHTML = "<a  href='FormulaireB.html?nom=" + nom + "&prenom=" + prenom + "&age=" + age + "&ad-mail=" + mail + "&tel=" + tel + "&typeCarte=" + typeCarte + "&prenom-cj=" + encodeURI(document.getElementById("prenom-cj").value) + "&nom-cj=" + encodeURI(document.getElementById("nom-cj").value) + "'>"
+                    + "<input type='button' class='btn' value='Formulaire Majeur'/> </a>";
+            }
+            document.getElementById("Reponse").style.color = "green";
+            document.getElementById("Reponse").innerHTML = "Lien générer avec succès ! Cliquez sur celui-ci pour la redirection";
+        } else if (age < 18 && age > 1) {
+            if (sessionStorage.getItem('length') == 10) {
+                document.getElementById("lien").style.display = "inline-block";
+                document.getElementById("lien").innerHTML = "<a  href='FormulaireA.html?nom=" + nom + "&prenom=" + prenom + "&age=" + age + "&ad-mail=" + mail + "&tel=" + tel + "&typeCarte=" + typeCarte + "'>"
+                    + "<input type='button' class='btn' value='Formulaire Majeur'/> </a>";
+            }
+            document.getElementById("Reponse").style.color = "green";
+            document.getElementById("Reponse").innerHTML = "Lien générer avec succès ! Cliquez sur celui-ci pour la redirection";
+        } else if (age < 1) {
+            document.getElementById("Reponse").style.color = "red";
+            document.getElementById("Reponse").innerHTML = "<i class='fa fa-exclamation-triangle'></i>&nbsp;L'age ne peut être négatif ou égale à 0";
         }
-        if (sessionStorage.getItem('length')>10) {
-            document.getElementById("lien").style.display="inline-block";
-            document.getElementById("lien").innerHTML="<a  href='FormulaireB.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"&prenom-cj="+encodeURI(document.getElementById("prenom-cj").value)+"&nom-cj="+encodeURI(document.getElementById("nom-cj").value)+"'>"
-            +"<input type='button' class='btn' value='Formulaire Majeur'/> </a>";
-        }
-        document.getElementById("Reponse").style.color="green";
-        document.getElementById("Reponse").innerHTML="Lien générer avec succès ! Cliquez sur celui-ci pour la redirection";
-    } else if (age < 18 && age > 1) {
-        if (sessionStorage.getItem('length')==10) {
-            document.getElementById("lien").style.display="inline-block";
-            document.getElementById("lien").innerHTML="<a  href='FormulaireA.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"'>"
-            +"<input type='button' class='btn' value='Formulaire Majeur'/> </a>";
-        }
-    }
-    if (age < 1) {
-        document.getElementById("Reponse").style.color="red";
-        document.getElementById("Reponse").innerHTML="<i class='fa fa-exclamation-triangle'></i>&nbsp;L'age ne peut être négatif ou égale à 0";
     }
 }
 
@@ -127,9 +127,9 @@ function $_GET(param) {
 //avec les valeurs réccuperer dans le lien
 function insert() {
 
-    if (sessionStorage.getItem('length')>10) {
+    if (sessionStorage.getItem('length') > 10) {
         //ajoute les champs du conjoint
-        document.getElementById("insertHere2").innerHTML = '<div class="form-group form-input"><input type="text" name="prenom-cj" id="prenom-cj" required/><label for="prenom-cj" class="form-label">Prénom conjoint</label></div><div class="form-group form-input"><input type="text" name="nom-cj" id="name-cj" required/><label for="nom-cj" class="form-label">Nom du conjoint</label></div>';
+        document.getElementById("insertHere2").innerHTML = '<div class="form-group form-input"><input type="text" name="prenom-cj" id="prenom-cj" disabled/><label for="prenom-cj" class="form-label2">Prénom conjoint</label></div><div class="form-group form-input"><input type="text" name="nom-cj" id="name-cj" disabled/><label for="nom-cj" class="form-label2">Nom du conjoint</label></div>';
     }
     //remplcer tous les + par des " " pour une meilleure lisibilité
     for (let i = 0; i < tabInput.length; i++) {
