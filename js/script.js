@@ -2,10 +2,14 @@ var tabInput = document.getElementById("form-section").getElementsByTagName("inp
 
 //Function permettant d'ajouter le nom et le prenom du conjoint en cas d'une carte couple
 function appel(x) {
-    if (x.value == "Couple") {
+    var age = encodeURI(document.form.age.value);
+    if (x.value == "Couple" && age>=18) {
         //ajout des champs concernant le conjoint
         document.getElementById("insertHere").innerHTML = '<div class="form-group form-input"><input type="text" name="prenom-cj" id="prenom-cj" required/><label for="prenom-cj" class="form-label">Prénom conjoint</label></div><div class="form-group form-input"><input type="text" name="nom-cj" id="nom-cj" required/><label for="nom-cj" class="form-label">Nom du conjoint</label></div>';
         sessionStorage.setItem('length', tabInput.length);//variable session stockant le nombre d'inputs presents dans le formulaire
+    }else if(x.value == "Couple" && age<10){
+        document.getElementById("Reponse").style.color="red";
+        document.getElementById("Reponse").innerHTML="Vous êtes mineur. Seelectionner un autre type de carte";
     }
 
     if (x.value != "Couple" && sessionStorage.getItem('length')>10) {
@@ -13,6 +17,10 @@ function appel(x) {
         //on les suppriment
         document.getElementById("insertHere").innerHTML = '';
         sessionStorage.setItem('length', tabInput.length);
+        document.getElementById("Reponse").innerHTML="lklk";
+    }
+    if (x.value != "Couple") {
+        document.getElementById("Reponse").innerHTML="";
     }
 }
 
@@ -31,6 +39,7 @@ function valider() {
         document.getElementById("requis").style.color="red";
         document.getElementById("requis").innerHTML='<i class="fa fa-exclamation-triangle"></i> Tous les champs doivent être remplis';
     }else{
+        document.getElementById("requis").innerHTML='';
     }
 
     // remplace le @ de l'adressemail par son encodage hexadécimal
@@ -62,13 +71,6 @@ function valider() {
             document.getElementById("lien").innerHTML="<a  href='FormulaireA.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"'>"
             +"<input type='button' class='btn' value='Formulaire Majeur'/> </a>";
         }
-        if (sessionStorage.getItem('length')>10) {
-            document.getElementById("lien").style.display="inline-block";
-            document.getElementById("lien").innerHTML="<a  href='FormulaireA.html?nom="+nom+"&prenom="+prenom+"&age="+age+"&ad-mail="+mail+"&tel="+tel+"&typeCarte="+typeCarte+"&prenom-cj="+encodeURI(document.getElementById("prenom-cj").value)+"&nom-cj="+encodeURI(document.getElementById("nom-cj").value)+"'>"
-            +"<input type='button' class='btn' value='Formulaire Majeur'/> </a>";
-        }
-        document.getElementById("Reponse").style.color="green";
-        document.getElementById("Reponse").innerHTML="Lien générer avec succès ! Cliquez sur celui-ci pour la redirection";
     }
     if (age < 1) {
         document.getElementById("Reponse").style.color="red";
@@ -98,7 +100,7 @@ window.onclick = function (event) {
 //function permettant de d'afficher la valeur de l'élement selectionner comme valeur du boutton principal de la selection
 function affichage(x) {
     document.getElementById("dropbtn").value = x.value;
-    document.getElementById("dropbtn").innerHTML = document.getElementById("dropbtn").value + '&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sort-down col"></i>';
+    document.getElementById("dropbtn").innerHTML = document.getElementById("dropbtn").value;
     document.getElementById("hide").value = x.value;
 
 }

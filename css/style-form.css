@@ -78,7 +78,7 @@ body {
 }
 
 .main {
-  padding: 65px 0;
+  padding: 51px 0;
   position: relative;
 }
 
@@ -217,7 +217,7 @@ input:focus {
 
 #dropbtn {
   box-sizing: border-box;
-  width: 100%;
+  width: 95%;
   display: block;
   border: none;
   font-family: Poppins;
@@ -227,9 +227,17 @@ input:focus {
   padding: 4px 0;
   text-align: left;
   cursor: pointer;
+  display:inline-block;
 }
 
-
+.col{
+  display:inline-block;
+}
+.row{
+  display:inline-block;
+  width:100%;
+  border: 1px solid #fff;
+}
 
 .dropdown-content {
   display: none;
@@ -279,6 +287,36 @@ a{
   display:none;
 }
 
+footer{
+  left: 0;
+  bottom: 0;
+  width: auto;
+  color: white;
+  background: #142133;
+  padding: 2px 10px 2px 10px;
+}
+
+footer span{
+
+}
+
+.rsLien{
+  padding: 5px;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  float: right;
+}
+
+.rsLien:hover{
+  background: #59c77f;
+  color: #fff;
+}
+
+.first{
+  left: -200px;
+}
+
 @media screen and (max-width: 1200px) {
   .container {
     width: calc( 100% - 30px);
@@ -316,10 +354,17 @@ a{
     border-bottom-right-radius: 10px;
     width: 30%;
   }
+  .first{
+    margin-left: 41%;
+  }
+
 }
 
 @media screen and (max-width: 480px) {
   form {
     padding: 72px 40px 70px 40px;
+  }
+  .first{
+    margin-left: 0;
   }
 }
