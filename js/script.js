@@ -39,7 +39,6 @@ function valider() {
         document.getElementById("requis").style.color = "red";
         document.getElementById("requis").innerHTML = '<i class="fa fa-exclamation-triangle"></i> Tous les champs doivent être remplis';
     } else if (nom != "" && prenom != "" && age != "" && mail != "" && tel != "" && typeCarte != ""){
-
         // remplace le @ de l'adressemail par son encodage hexadécimal
         for (let i = 0; i < mail.length; i++) {
             if (mail[i] == "@") {
@@ -64,18 +63,24 @@ function valider() {
             document.getElementById("Reponse").style.color = "green";
             document.getElementById("Reponse").innerHTML = "Lien générer avec succès ! Cliquez sur celui-ci pour la redirection";
         } else if (age < 18 && age > 1) {
-            if (sessionStorage.getItem('length') == 10) {
+            if ( typeCarte=="Couple") {
+                document.getElementById("Reponse").innerHTML += '.<br>Le formulaire ne peut être valider car un mineur ne peut-être marier';
+            }else if (sessionStorage.getItem('length') == 10) {
                 document.getElementById("lien").style.display = "inline-block";
                 document.getElementById("lien").innerHTML = "<a  href='FormulaireA.html?nom=" + nom + "&prenom=" + prenom + "&age=" + age + "&ad-mail=" + mail + "&tel=" + tel + "&typeCarte=" + typeCarte + "'>"
                     + "<input type='button' class='btn' value='Formulaire Majeur'/> </a>";
+                    document.getElementById("Reponse").style.color = "green";
+                    document.getElementById("Reponse").innerHTML = "Lien générer avec succès ! Cliquez sur celui-ci pour la redirection";
             }
-            document.getElementById("Reponse").style.color = "green";
-            document.getElementById("Reponse").innerHTML = "Lien générer avec succès ! Cliquez sur celui-ci pour la redirection";
+            
+            
         } else if (age < 1) {
             document.getElementById("Reponse").style.color = "red";
             document.getElementById("Reponse").innerHTML = "<i class='fa fa-exclamation-triangle'></i>&nbsp;L'age ne peut être négatif ou égale à 0";
         }
+        
     }
+    
 }
 
 //function qui montre les élements de la selection personalisée des cartes
