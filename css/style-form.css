@@ -340,10 +340,17 @@ a{
     border-bottom-right-radius: 10px;
     width: 30%;
   }
+  #dropbtn {
+    width: 95%;
+  }
 }
 
 @media screen and (max-width: 480px) {
   form {
     padding: 72px 40px 70px 40px;
   }
+  #dropbtn {
+    width: 95%;
+  }
+
 }
